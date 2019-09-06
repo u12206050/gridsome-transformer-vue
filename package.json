@@ -1,0 +1,29 @@
+{
+  "version": "0.1.1",
+  "name": "@gridsome/transformer-vue",
+  "description": "VUE transformer for Gridsome",
+  "repository": {
+    "url": "https://github.com/u12206050/gridsome-transformer-vue.git"
+  },
+  "license": "MIT",
+  "main": "index.js",
+  "keywords": [
+    "gridsome",
+    "gridsome-plugin",
+    "gridsome-transformer",
+    "vue"
+  ],
+  "dependencies": {
+    "@vuese/parser": "^2.4.0",
+    "faker": "^4.1.0"
+  },
+  "peerDependencies": {
+    "gridsome": "0.x"
+  },
+  "publishConfig": {
+    "access": "public"
+  },
+  "engines": {
+    "node": ">=8"
+  }
+}
