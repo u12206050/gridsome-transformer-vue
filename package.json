@@ -1,6 +1,6 @@
 {
   "version": "0.1.1",
-  "name": "@gridsome/transformer-vue",
+  "name": "gridsome-transformer-vue",
   "description": "VUE transformer for Gridsome",
   "repository": {
     "url": "https://github.com/u12206050/gridsome-transformer-vue.git"

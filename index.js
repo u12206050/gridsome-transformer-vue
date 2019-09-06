@@ -37,7 +37,6 @@ class VUETransformer {
           let mock = {}
           node.props && node.props.forEach(p => {
             let type = Array.isArray(p.type) ? p.type[0] : p.type
-            //if (!p.required && Math.random() < 0.10) return null
 
             // v-model
             if (p.name === 'value') return null
