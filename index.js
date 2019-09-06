@@ -41,8 +41,8 @@ class VUETransformer {
             // v-model
             if (p.name === 'value') return null
 
-            // Use default value if specified
-            if (p.default !== undefined && p.default !== null) return mock[p.name] = p.default
+            // Ignore if default value is specify
+            if (p.default !== undefined && p.default !== null) return null
 
             // Faker data
             let fake = p.describe && p.describe.find(d => d.indexOf('faker.') > -1)
