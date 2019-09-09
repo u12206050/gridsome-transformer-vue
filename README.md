@@ -43,6 +43,7 @@ query VueComponent ($id: String!) {
     id
     name
     mockData
+    source
     fileInfo {
       path
       directory

@@ -19,7 +19,10 @@ class VUETransformer {
     })
 
     if (result && typeof result === 'object') {
-      return result
+      return {
+        ...result,
+        source
+      }
     }
 
     return null
