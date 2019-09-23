@@ -56,6 +56,8 @@ class VUETransformer {
               } else console.log(`WARNING: ${fake} is not a valid faker function`)
             }
 
+            if (p.isImage) return `https://source.unsplash.com/random?${performance.now()}`
+
             // Excerpt
             switch(type) {
               case 'String': return mock[p.name] = faker.random.word()

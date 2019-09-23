@@ -87,7 +87,7 @@ export default {
   excerpt: {
     type: String
   },
-  // faker.image.imageUrl
+  // Image
   image: {
     type: [Object, String],
     required: true
@@ -95,3 +95,5 @@ export default {
 }
 </script>
 ```
+
+Get an unsplash image url in the mock data by adding `// Image` as a comment to a prop.
