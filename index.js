@@ -13,10 +13,21 @@ class VUETransformer {
   parse (source) {
     const result = vuese.parser(source)
 
-    result.props && result.props.forEach(p => {
-      p.type = typeof p.type === 'string' ? [p.type] : p.type
-      if (p.describe && p.describe.indexOf('Image') > -1) p.isImage = true
-    })
+    if (result.props) {
+      result.props.forEach(p => {
+        p.type = typeof p.type === 'string' ? [p.type] : p.type
+        if (p.describe && p.describe.indexOf('Image') > -1) p.isImage = true
+
+        let fakerFn = p.describe && p.describe.find(d => d.indexOf('faker.') > -1)
+        if (fakerFn) {
+          fakerFn = fakerFn.replace('faker.','')
+          if (typeof resolvePath(faker, fakerFn) === 'function') p.fakerFn = fakerFn
+          else console.log(`WARNING: ${fake} is not a valid faker function`)
+        }
+      })
+    }
+
+
 
     if (result && typeof result === 'object') {
       return {
@@ -48,15 +59,10 @@ class VUETransformer {
             if (p.default !== undefined && p.default !== null) return null
 
             // Faker data
-            let fake = p.describe && p.describe.find(d => d.indexOf('faker.') > -1)
-            if (fake) {
-              let fn = resolvePath(faker, fake.replace('faker.',''))
-              if (typeof fn === 'function') {
-                return mock[p.name] = fn()
-              } else console.log(`WARNING: ${fake} is not a valid faker function`)
-            }
+            if (p.fakerFn) return mock[p.name] = resolvePath(faker, fakerFn)()
 
-            if (p.isImage) return `https://source.unsplash.com/random?${performance.now()}`
+            // Image - Unsplash
+            if (p.isImage) return mock[p.name] = `https://source.unsplash.com/random?${performance.now()}`
 
             // Excerpt
             switch(type) {

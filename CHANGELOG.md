@@ -1,6 +1,6 @@
 # Change log
 
-### 0.1.4
+### 0.1.5
 
   - Add support for `// Image` to return an unsplash image url in mock data
 
