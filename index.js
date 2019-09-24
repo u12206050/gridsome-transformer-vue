@@ -1,9 +1,9 @@
 const vuese = require('@vuese/parser')
 const faker = require('faker')
 
-const resolvePath = (object, path, defaultValue) => path
-   .split('.')
-   .reduce((o, p) => o ? o[p] : defaultValue, object)
+function resolvePath(object, path, defaultValue) {
+  return path.split('.').reduce((o, p) => o ? o[p] : defaultValue, object)
+}
 
 class VUETransformer {
   static mimeTypes () {
