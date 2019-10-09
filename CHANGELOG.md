@@ -1,5 +1,9 @@
 # Change log
 
+### 0.1.6
+
+  - Fixed `not defined` error.
+
 ### 0.1.5
 
   - Add support for `// Image` to return an unsplash image url in mock data

@@ -27,8 +27,6 @@ class VUETransformer {
       })
     }
 
-
-
     if (result && typeof result === 'object') {
       return {
         ...result,
@@ -59,10 +57,10 @@ class VUETransformer {
             if (p.default !== undefined && p.default !== null) return null
 
             // Faker data
-            if (p.fakerFn) return mock[p.name] = resolvePath(faker, fakerFn)()
+            if (p.fakerFn) return mock[p.name] = resolvePath(faker, p.fakerFn)()
 
             // Image - Unsplash
-            if (p.isImage) return mock[p.name] = `https://source.unsplash.com/random?${performance.now()}`
+            if (p.isImage) return mock[p.name] = `https://source.unsplash.com/random?${Math.random()}`.replace('0.', '?')
 
             // Excerpt
             switch(type) {
