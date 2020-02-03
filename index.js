@@ -22,7 +22,7 @@ class VUETransformer {
         if (fakerFn) {
           fakerFn = fakerFn.replace('faker.','')
           if (typeof resolvePath(faker, fakerFn) === 'function') p.fakerFn = fakerFn
-          else console.log(`WARNING: ${fake} is not a valid faker function`)
+          else console.log(`WARNING: ${fakerFn} is not a valid faker function`)
         }
       })
     }

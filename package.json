@@ -1,5 +1,5 @@
 {
-  "version": "0.1.6",
+  "version": "0.1.7",
   "name": "gridsome-transformer-vue",
   "description": "VUE transformer for Gridsome",
   "repository": {
@@ -14,7 +14,7 @@
     "vue"
   ],
   "dependencies": {
-    "@vuese/parser": "^2.4.0",
+    "@vuese/parser": "^2.4.3",
     "faker": "^4.1.0"
   },
   "peerDependencies": {
